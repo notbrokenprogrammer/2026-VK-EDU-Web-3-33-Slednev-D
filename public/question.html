@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Ответы — сообщество вопросов и ответов о веб-разработке.">
+        <title>Как расположить поиск по центру шапки Bootstrap? — Ответы</title>
+        <link rel="icon" href="static/img/favicon.svg" type="image/svg+xml">
+        <link rel="stylesheet" href="static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="static/css/base.css">
+    </head>
+    <body data-page="question">
+        <a class="skip-link" href="#main-content">Перейти к содержимому</a>
+        <!-- Шапка: логотип, поиск, создание вопроса и юзерблок. -->
+        <header>
+            <nav class="navbar navbar-expand-lg py-3" aria-label="Основная навигация">
+                <div class="container-fluid px-3">
+                    <a class="navbar-brand" href="index.html">Ответы</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Открыть меню">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <form class="d-flex gap-2 header-search" role="search" action="index.html" method="get">
+                            <label class="visually-hidden" for="site-search">Поиск вопросов</label>
+                            <input class="form-control form-control-sm" id="site-search" name="q" type="search" maxlength="100" placeholder="Найти вопрос">
+                            <button class="btn btn-outline-primary btn-sm" type="submit">Найти</button>
+                        </form>
+                        <a class="btn btn-primary btn-sm text-nowrap" href="ask.html">Задать вопрос</a>
+                        <div class="header-user d-flex align-items-center gap-2 ms-lg-4 mt-3 mt-lg-0">
+                            <a href="login.html" class="btn btn-outline-primary btn-sm">Войти</a>
+                            <a href="signup.html" class="btn btn-primary btn-sm">Регистрация</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!-- Основная область: центральная колонка + sidebar. -->
+        <main class="site-main" id="main-content">
+            <div class="container-fluid p-0">
+                <div class="row g-2 layout-row">
+                    <div class="col-lg-8 content-column">
+                        <div class="main-panel">
+                            <a href="index.html" class="small d-inline-block mb-4 back-link">← Все вопросы</a>
+                            <article class="question-detail mb-4">
+                                <div class="question-layout">
+                                    <div class="author-column">
+                                        <img src="static/img/avatar-danila.png" class="avatar" alt="Аватар автора: Данила Следнев" decoding="async">
+                                        <span class="author-name">Данила Следнев</span>
+                                        <div class="btn-group vote-widget" data-current-vote="0" role="group" aria-label="Голосование">
+                                            <span class="btn btn-outline-secondary vote-count" aria-live="polite">24</span>
+                                            <button class="btn btn-outline-secondary vote-button" type="button" data-vote="1" aria-label="Поставить лайк" aria-pressed="false">+</button>
+                                            <button class="btn btn-outline-secondary vote-button" type="button" data-vote="-1" aria-label="Поставить дизлайк" aria-pressed="false">−</button>
+                                        </div>
+                                    </div>
+                                    <div class="question-content">
+                                        <div class="question-meta mb-3">
+                                            <time datetime="2026-10-12T18:40:00+03:00">12 октября 2026, 18:40</time>
+                                        </div>
+                                        <h1 class="question-title">Как расположить поиск по центру шапки Bootstrap?</h1>
+                                        <p>Собираю шапку для сайта вопросов и ответов. Сейчас форма поиска прижата к правому краю, а мне хочется разместить её примерно по центру.</p>
+                                        <p>Логотип должен остаться слева, а ссылки входа и регистрации — справа. На телефоне элементы не должны наезжать друг на друга. Как лучше использовать Flexbox и автоматические отступы?</p>
+                                        <pre class="code-example"><code>&lt;div class="d-flex"&gt;
+    &lt;a href="index.html"&gt;Ответы&lt;/a&gt;
+    &lt;form&gt;…&lt;/form&gt;
+    &lt;div&gt;Войти · Регистрация&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                                        <div class="question-footer">
+                                            <span class="small">Ответы: 3</span>
+                                            <div class="tag-list">
+                                                <span class="tag-label">Теги:</span>
+                                                <a class="badge text-bg-primary text-decoration-none tag-link" href="tag.html?tag=bootstrap">bootstrap</a>
+                                                <a class="badge text-bg-primary text-decoration-none tag-link" href="tag.html?tag=html">html</a>
+                                                <a class="badge text-bg-primary text-decoration-none tag-link" href="tag.html?tag=css">css</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <section id="answers" aria-labelledby="answers-title">
+                                <h2 id="answers-title" class="h4 fw-bold mb-3">3 ответа</h2>
+                                <div class="d-flex flex-column gap-3" id="page-answers-1" data-page-group="answers" data-page="1">
+                                    <article class="card answer-card" data-accepted="true">
+                                        <div class="question-layout">
+                                            <div class="author-column">
+                                                <img src="static/img/avatar-anna.svg" class="avatar" alt="Аватар автора: Анна К." decoding="async">
+                                                <span class="author-name">Анна К.</span>
+                                                <div class="btn-group vote-widget" data-current-vote="1" role="group" aria-label="Голосование">
+                                                    <span class="btn btn-outline-secondary vote-count" aria-live="polite">16</span>
+                                                    <button class="btn btn-outline-secondary vote-button" type="button" data-vote="1" aria-label="Поставить лайк" aria-pressed="true">+</button>
+                                                    <button class="btn btn-outline-secondary vote-button" type="button" data-vote="-1" aria-label="Поставить дизлайк" aria-pressed="false">−</button>
+                                                </div>
+                                            </div>
+                                            <div class="question-content">
+                                                <div class="answer-text">
+                                                    <p>Используй Flexbox для общей строки шапки. Пусть у формы будет <code>flex: 1</code> и ограничение <code>max-width</code>, а автоматические отступы слева и справа займут свободное место.</p>
+                                                    <p>Так поиск окажется примерно в центре области между логотипом и юзерблоком. Для узкого экрана расположи элементы в столбик или используй сворачивающееся меню Bootstrap.</p>
+                                                </div>
+                                                <div class="question-meta mb-3">
+                                                    <time datetime="2026-10-12T19:00:00+03:00">12 октября 2026, 19:00</time>
+                                                </div>
+                                                <label class="accept-label">
+                                                    <input type="checkbox" class="form-check-input accept-input" aria-label="Отметить ответ правильным" checked>
+                                                    <span>Правильный ответ</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    <article class="card answer-card" data-accepted="false">
+                                        <div class="question-layout">
+                                            <div class="author-column">
+                                                <img src="static/img/avatar-max.svg" class="avatar" alt="Аватар автора: Максим С." decoding="async">
+                                                <span class="author-name">Максим С.</span>
+                                                <div class="btn-group vote-widget" data-current-vote="0" role="group" aria-label="Голосование">
+                                                    <span class="btn btn-outline-secondary vote-count" aria-live="polite">8</span>
+                                                    <button class="btn btn-outline-secondary vote-button" type="button" data-vote="1" aria-label="Поставить лайк" aria-pressed="false">+</button>
+                                                    <button class="btn btn-outline-secondary vote-button" type="button" data-vote="-1" aria-label="Поставить дизлайк" aria-pressed="false">−</button>
+                                                </div>
+                                            </div>
+                                            <div class="question-content">
+                                                <div class="answer-text">
+                                                    <p>Если нужно просто сдвинуть форму от края, можно добавить автоматические отступы. Но это ещё не гарантирует точное совпадение с центром окна: слева и справа находятся блоки разной ширины.</p>
+                                                </div>
+                                                <div class="question-meta mb-3">
+                                                    <time datetime="2026-10-12T19:00:00+03:00">12 октября 2026, 19:00</time>
+                                                </div>
+                                                <label class="accept-label">
+                                                    <input type="checkbox" class="form-check-input accept-input" aria-label="Отметить ответ правильным">
+                                                    <span>Правильный ответ</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="d-flex flex-column gap-3" id="page-answers-2" data-page-group="answers" data-page="2" hidden>
+                                    <article class="card answer-card" data-accepted="false">
+                                        <div class="question-layout">
+                                            <div class="author-column">
+                                                <img src="static/img/avatar-alex.svg" class="avatar" alt="Аватар автора: Алексей Л." decoding="async">
+                                                <span class="author-name">Алексей Л.</span>
+                                                <div class="btn-group vote-widget" data-current-vote="0" role="group" aria-label="Голосование">
+                                                    <span class="btn btn-outline-secondary vote-count" aria-live="polite">3</span>
+                                                    <button class="btn btn-outline-secondary vote-button" type="button" data-vote="1" aria-label="Поставить лайк" aria-pressed="false">+</button>
+                                                    <button class="btn btn-outline-secondary vote-button" type="button" data-vote="-1" aria-label="Поставить дизлайк" aria-pressed="false">−</button>
+                                                </div>
+                                            </div>
+                                            <div class="question-content">
+                                                <div class="answer-text">
+                                                    <p>Не забудь проверить шапку на телефоне. Для поля поиска полезно задать <code>min-width: 0</code>, чтобы оно могло сжиматься внутри flex-контейнера.</p>
+                                                </div>
+                                                <div class="question-meta mb-3">
+                                                    <time datetime="2026-10-12T19:00:00+03:00">12 октября 2026, 19:00</time>
+                                                </div>
+                                                <label class="accept-label">
+                                                    <input type="checkbox" class="form-check-input accept-input" aria-label="Отметить ответ правильным">
+                                                    <span>Правильный ответ</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                                <nav class="mt-4" aria-label="Пагинация: ответы" data-pagination="answers">
+                                    <ul class="pagination mb-0">
+                                        <li class="page-item active">
+                                            <a class="page-link" href="#page-answers-1" data-page="1" aria-current="page" aria-label="Страница 1">1</a>
+                                        </li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#page-answers-2" data-page="2" aria-label="Страница 2">2</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </section>
+                            <section class="mt-5" aria-labelledby="reply-title">
+                                <h2 id="reply-title" class="h4 fw-bold mb-3">Твой ответ</h2>
+                                <!-- Django: назначить action/method и добавить csrf_token. Поля уже имеют name. -->
+                                <form class="form-card reply-form" data-demo-form novalidate method="post" action="#">
+                                    <div class="alert alert-danger" role="alert" data-form-error hidden="hidden">Не удалось отправить ответ. Заполните поле ниже.</div>
+                                    <div class="alert alert-success" role="status" data-form-success hidden>Поля заполнены корректно. Это демонстрация: данные не сохранены.</div>
+                                    <div class="form-row">
+                                        <label class="form-label" for="field-answer">Текст ответа</label>
+                                        <div class="form-field">
+                                            <textarea id="field-answer" name="answer" class="form-control" aria-describedby="field-answer-error field-answer-hint" data-feedback="field-answer-error" required minlength="10" maxlength="5000" rows="5" placeholder="Поделись решением и объясни, почему оно работает…"></textarea>
+                                            <div class="invalid-feedback" id="field-answer-error">Введите текст ответа.</div>
+                                            <div class="form-text" id="field-answer-hint">Объясни решение. От 10 до 5 000 символов.</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-actions">
+                                        <button class="btn btn-primary px-4" type="submit">Отправить ответ</button>
+                                    </div>
+                                    <p class="form-text mt-3 mb-0">Демонстрационная форма: данные не сохраняются.</p>
+                                </form>
+                            </section>
+                        </div>
+                    </div>
+                    <!-- Sidebar: общие блоки справа, на узком экране переходят вниз. -->
+                    <aside class="col-lg-4 site-sidebar" aria-label="Сообщество">
+                        <div class="sidebar-panel d-flex flex-column gap-4">
+                            <section class="sidebar-section">
+                                <h2 class="sidebar-title">Популярные теги</h2>
+                                <div class="tag-list">
+                                    <a class="badge text-bg-primary text-decoration-none tag-link popular-tag" href="tag.html?tag=bootstrap">bootstrap</a>
+                                    <a class="badge text-bg-primary text-decoration-none tag-link popular-tag" href="tag.html?tag=html">html</a>
+                                    <a class="badge text-bg-primary text-decoration-none tag-link popular-tag" href="tag.html?tag=css">css</a>
+                                </div>
+                            </section>
+                            <section class="sidebar-section">
+                                <h2 class="sidebar-title mb-1">Лучшие пользователи</h2>
+                                <ol class="member-list">
+                                    <li>
+                                        <a class="member-name" href="profile.html">Анна К.</a>
+                                    </li>
+                                    <li>
+                                        <a class="member-name" href="profile.html">Максим С.</a>
+                                    </li>
+                                    <li>
+                                        <a class="member-name" href="profile.html">Алексей Л.</a>
+                                    </li>
+                                </ol>
+                            </section>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </main>
+        <footer class="site-footer">Учебный проект · Вопросы и ответы</footer>
+        <!-- Вся статика локальная: без CDN и внешних запросов. -->
+        <script src="static/js/bootstrap.bundle.min.js"></script>
+        <script src="static/js/app.js"></script>
+    </body>
+</html>
