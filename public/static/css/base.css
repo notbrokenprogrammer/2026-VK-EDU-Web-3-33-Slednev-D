@@ -1,0 +1,81 @@
+/* Основные кнопки, поля, сетка и пагинация — из Bootstrap. Здесь только расположение. */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #edf3fc;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+[hidden] { display: none !important; }
+.navbar { border-bottom: 1px solid #d5deec; }
+.navbar-brand { font-size: 22px; font-weight: bold; }
+.header-search { max-width: 470px; flex: 1; margin-inline: auto; }
+.header-search .form-control { min-width: 0; }
+.header-user { flex-shrink: 0; }
+.header-avatar { width: 36px; height: 36px; object-fit: cover; border-radius: 50%; }
+.site-main { display: flex; flex: 1; padding: 8px; }
+.site-main > .container-fluid { display: flex; flex-direction: column; }
+.layout-row { flex: 1; }
+.main-panel, .sidebar-panel { height: 100%; padding: 20px; background: white; border: 1px solid #e4e8ef; }
+.page-title { font-size: 24px; font-weight: 400; margin-bottom: 20px; }
+.listing-heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 16px; }
+.listing-heading .page-title { margin: 0; }
+.listing-switch { font-size: 13px; }
+
+/* Карточка: аватар и рейтинг слева, текст справа. */
+.question-card, .answer-card { padding: 18px; }
+.question-layout { display: flex; gap: 20px; }
+.author-column { width: 86px; flex-shrink: 0; text-align: center; }
+.avatar { display: block; width: 44px; height: 44px; margin: 0 auto 8px; object-fit: cover; border-radius: 50%; }
+.author-name { display: block; font-size: 12px; margin-bottom: 8px; }
+.question-content { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.question-title { font-size: 18px; font-weight: 400; margin-bottom: 8px; }
+.question-title a { text-decoration: none; }
+.question-title a:hover { text-decoration: underline; }
+.question-excerpt { margin-bottom: 10px; line-height: 1.6; }
+.question-meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 12px; color: #6c757d; }
+.question-footer { margin-top: 10px; }
+.tag-list { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.tag-label { font-size: 12px; color: #6c757d; }
+.tag-link { font-size: 11px; }
+.vote-widget .btn { min-width: 28px; padding: 3px 6px; font-size: 12px; border-color: #ced4da; }
+.vote-count { color: #495057; background: white; }
+.vote-button[aria-pressed="true"] { background: #0d6efd; color: white; }
+.vote-button[data-vote="-1"][aria-pressed="true"] { background: #6c757d; }
+.question-detail { padding-bottom: 20px; border-bottom: 1px solid #dee2e6; }
+.question-detail h1 { font-size: 24px; }
+.question-detail p, .answer-text { line-height: 1.7; }
+.answer-card[data-accepted="true"] { border-color: #75b798; }
+.accept-label { display: inline-flex; align-items: center; gap: 8px; }
+.accept-label .form-check-input { margin: 0; }
+.code-example { padding: 12px; background: #f6f7f9; border: 1px solid #dee2e6; border-radius: 4px; overflow-x: auto; font-size: 12px; }
+.sidebar-title { font-size: 18px; font-weight: 400; margin-bottom: 12px; }
+.member-list { padding-left: 22px; margin: 0; line-height: 1.8; }
+
+/* Обычные формы и подвал. */
+.form-card { max-width: 620px; }
+.form-row { margin-bottom: 18px; }
+.form-label { font-weight: 500; margin-bottom: 6px; }
+.form-control, .form-actions .btn { font-size: 14px; }
+.form-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 15px; margin-top: 22px; }
+.form-avatar { width: 80px; height: 80px; object-fit: cover; border-radius: 4px; }
+.login-form { max-width: 420px; }
+.reply-form { max-width: none; }
+.site-footer { padding: 10px; text-align: center; font-size: 12px; color: #495057; }
+.skip-link { position: absolute; top: -100px; left: 12px; z-index: 10; }
+.skip-link:focus { top: 10px; background: white; padding: 10px; }
+
+@media (max-width: 991.98px) {
+    .navbar-collapse { padding-top: 15px; }
+    .header-search { max-width: none; margin-bottom: 15px; }
+}
+@media (max-width: 575.98px) {
+    .main-panel, .sidebar-panel { padding: 14px; }
+    .question-card, .answer-card { padding: 12px; }
+    .question-layout { gap: 12px; }
+    .author-column { width: 78px; }
+    .question-title { font-size: 16px; }
+    .question-detail h1 { font-size: 21px; }
+    .form-control { font-size: 16px; }
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Ответы — сообщество вопросов и ответов о веб-разработке.">
+        <title>Задать вопрос — Ответы</title>
+        <link rel="icon" href="static/img/favicon.svg" type="image/svg+xml">
+        <link rel="stylesheet" href="static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="static/css/base.css">
+    </head>
+    <body data-page="ask">
+        <a class="skip-link" href="#main-content">Перейти к содержимому</a>
+        <!-- Шапка: логотип, поиск, создание вопроса и юзерблок. -->
+        <header>
+            <nav class="navbar navbar-expand-lg py-3" aria-label="Основная навигация">
+                <div class="container-fluid px-3">
+                    <a class="navbar-brand" href="index.html">Ответы</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Открыть меню">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <form class="d-flex gap-2 header-search" role="search" action="index.html" method="get">
+                            <label class="visually-hidden" for="site-search">Поиск вопросов</label>
+                            <input class="form-control form-control-sm" id="site-search" name="q" type="search" maxlength="100" placeholder="Найти вопрос">
+                            <button class="btn btn-outline-primary btn-sm" type="submit">Найти</button>
+                        </form>
+                        <a class="btn btn-primary btn-sm text-nowrap" href="ask.html">Задать вопрос</a>
+                        <div class="header-user d-flex align-items-center gap-2 ms-lg-4 mt-3 mt-lg-0">
+                            <a href="login.html" class="btn btn-outline-primary btn-sm">Войти</a>
+                            <a href="signup.html" class="btn btn-primary btn-sm">Регистрация</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!-- Основная область: центральная колонка + sidebar. -->
+        <main class="site-main" id="main-content">
+            <div class="container-fluid p-0">
+                <div class="row g-2 layout-row">
+                    <div class="col-lg-8 content-column">
+                        <div class="main-panel">
+                            <h1 class="page-title">Новый вопрос</h1>
+                            <!-- Django: назначить action/method и добавить csrf_token. Поля уже имеют name. -->
+                            <form class="form-card" data-demo-form novalidate method="post" action="#">
+                                <div class="alert alert-danger" role="alert" data-form-error hidden="hidden">Не удалось добавить вопрос. Проверьте обязательные поля.</div>
+                                <div class="alert alert-success" role="status" data-form-success hidden>Поля заполнены корректно. Это демонстрация: данные не сохранены.</div>
+                                <div class="form-row">
+                                    <label class="form-label" for="field-title">Заголовок</label>
+                                    <div class="form-field">
+                                        <input id="field-title" name="title" class="form-control" aria-describedby="field-title-error field-title-hint" data-feedback="field-title-error" required minlength="10" maxlength="150" type="text" value="" placeholder="Например: как выровнять поиск в шапке?">
+                                        <div class="invalid-feedback" id="field-title-error">Введите заголовок вопроса.</div>
+                                        <div class="form-text" id="field-title-hint">Коротко сформулируй вопрос. От 10 до 150 символов.</div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <label class="form-label" for="field-text">Текст вопроса</label>
+                                    <div class="form-field">
+                                        <textarea id="field-text" name="text" class="form-control" aria-describedby="field-text-error field-text-hint" data-feedback="field-text-error" required minlength="20" maxlength="5000" rows="7" placeholder="Что ты хочешь сделать? Что уже пробовал и где возникла проблема?"></textarea>
+                                        <div class="invalid-feedback" id="field-text-error">Проверьте значение поля.</div>
+                                        <div class="form-text" id="field-text-hint">Опиши задачу, свой код и ожидаемый результат. От 20 до 5 000 символов.</div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <label class="form-label" for="field-tags">Теги</label>
+                                    <div class="form-field">
+                                        <input id="field-tags" name="tags" class="form-control" aria-describedby="field-tags-error field-tags-hint" data-feedback="field-tags-error" required maxlength="100" type="text" value="" placeholder="html, css, bootstrap">
+                                        <div class="invalid-feedback" id="field-tags-error">Проверьте значение поля.</div>
+                                        <div class="form-text" id="field-tags-hint">До трёх тегов через запятую. Например: html, css, bootstrap.</div>
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <button class="btn btn-primary px-4" type="submit">Опубликовать вопрос</button>
+                                    <a href="index.html">Отмена</a>
+                                </div>
+                                <p class="form-text mt-3 mb-0">Демонстрационная форма: данные не сохраняются.</p>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Sidebar: общие блоки справа, на узком экране переходят вниз. -->
+                    <aside class="col-lg-4 site-sidebar" aria-label="Сообщество">
+                        <div class="sidebar-panel d-flex flex-column gap-4">
+                            <section class="sidebar-section">
+                                <h2 class="sidebar-title">Популярные теги</h2>
+                                <div class="tag-list">
+                                    <a class="badge text-bg-primary text-decoration-none tag-link popular-tag" href="tag.html?tag=bootstrap">bootstrap</a>
+                                    <a class="badge text-bg-primary text-decoration-none tag-link popular-tag" href="tag.html?tag=html">html</a>
+                                    <a class="badge text-bg-primary text-decoration-none tag-link popular-tag" href="tag.html?tag=css">css</a>
+                                </div>
+                            </section>
+                            <section class="sidebar-section">
+                                <h2 class="sidebar-title mb-1">Лучшие пользователи</h2>
+                                <ol class="member-list">
+                                    <li>
+                                        <a class="member-name" href="profile.html">Анна К.</a>
+                                    </li>
+                                    <li>
+                                        <a class="member-name" href="profile.html">Максим С.</a>
+                                    </li>
+                                    <li>
+                                        <a class="member-name" href="profile.html">Алексей Л.</a>
+                                    </li>
+                                </ol>
+                            </section>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </main>
+        <footer class="site-footer">Учебный проект · Вопросы и ответы</footer>
+        <!-- Вся статика локальная: без CDN и внешних запросов. -->
+        <script src="static/js/bootstrap.bundle.min.js"></script>
+        <script src="static/js/app.js"></script>
+    </body>
+</html>
