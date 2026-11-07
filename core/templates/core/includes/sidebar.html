@@ -1,0 +1,20 @@
+<aside class="col-lg-4 site-sidebar" aria-label="Сообщество">
+    <div class="sidebar-panel d-flex flex-column gap-4">
+        <section class="sidebar-section">
+            <h2 class="sidebar-title">Популярные теги</h2>
+            <div class="tag-list">
+                <a class="badge text-bg-primary text-decoration-none tag-link" href="{% url 'questions:tag' 'bootstrap' %}">bootstrap</a>
+                <a class="badge text-bg-primary text-decoration-none tag-link" href="{% url 'questions:tag' 'html' %}">html</a>
+                <a class="badge text-bg-primary text-decoration-none tag-link" href="{% url 'questions:tag' 'css' %}">css</a>
+            </div>
+        </section>
+        <section class="sidebar-section">
+            <h2 class="sidebar-title mb-1">Лучшие пользователи</h2>
+            <ol class="member-list">
+                <li>Анна К.</li>
+                <li>Максим С.</li>
+                <li>Алексей Л.</li>
+            </ol>
+        </section>
+    </div>
+</aside>

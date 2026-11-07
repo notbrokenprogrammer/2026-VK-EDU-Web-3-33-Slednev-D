@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ответы — вопросы и ответы о веб-разработке.">
+    <title>{% block title %}Ответы{% endblock %}</title>
+    <link rel="icon" href="{% static 'core/img/favicon.svg' %}" type="image/svg+xml">
+    <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/base.css' %}">
+    <script src="{% static 'core/js/bootstrap.bundle.min.js' %}" defer></script>
+    <script src="{% static 'core/js/app.js' %}" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Перейти к содержимому</a>
+    <header>
+        <nav class="navbar navbar-expand-lg py-3" aria-label="Основная навигация">
+            <div class="container-fluid px-3">
+                <a class="navbar-brand" href="{% url 'questions:index' %}">Ответы</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#site-menu" aria-controls="site-menu" aria-expanded="false"
+                        aria-label="Открыть меню">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="site-menu">
+                    <form class="d-flex gap-2 header-search" role="search" action="{% url 'questions:index' %}" method="get">
+                        <label class="visually-hidden" for="site-search">Поиск вопросов</label>
+                        <input class="form-control form-control-sm" id="site-search" name="q" type="search"
+                               maxlength="100" placeholder="Найти вопрос" value="{{ query }}">
+                        <button class="btn btn-outline-primary btn-sm" type="submit">Найти</button>
+                    </form>
+                    <a class="btn btn-primary btn-sm text-nowrap" href="{% url 'questions:ask' %}">Задать вопрос</a>
+                    <div class="header-user d-flex align-items-center gap-2 ms-lg-4 mt-3 mt-lg-0">
+                        {% if profile %}
+                            <img src="{% static profile.avatar %}" class="header-avatar" alt="">
+                            <div>
+                                <div class="small fw-semibold">{{ profile.nickname }}</div>
+                                <a class="small" href="{% url 'core:profile' %}" aria-current="page">Настройки</a>
+                                <a class="small ms-2" href="{% url 'core:login' %}">Выйти</a>
+                            </div>
+                        {% else %}
+                            <a href="{% url 'core:login' %}" class="btn btn-outline-primary btn-sm">Войти</a>
+                            <a href="{% url 'core:signup' %}" class="btn btn-primary btn-sm">Регистрация</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="site-main" id="main-content">
+        <div class="container-fluid p-0">
+            <div class="row g-2 layout-row">
+                <div class="col-lg-8 content-column">
+                    <div class="main-panel">
+                        {% block content %}{% endblock %}
+                    </div>
+                </div>
+                {% include "core/includes/sidebar.html" %}
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">Учебный проект · Вопросы и ответы</footer>
+</body>
+</html>

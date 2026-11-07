@@ -1,0 +1,16 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+    <div class="listing-heading">
+        <h1 class="page-title">{% block heading %}{% endblock %}</h1>
+        {% block listing_link %}{% endblock %}
+    </div>
+    <div class="d-flex flex-column gap-3">
+        {% for question in page_obj %}
+            {% include "questions/includes/question-card.html" with question=question only %}
+        {% empty %}
+            <p class="text-muted mb-0">Подходящих вопросов пока нет.</p>
+        {% endfor %}
+    </div>
+    {% include "questions/includes/pagination.html" with label="Страницы вопросов" %}
+{% endblock %}

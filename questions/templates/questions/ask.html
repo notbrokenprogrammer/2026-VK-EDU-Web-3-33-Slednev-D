@@ -1,0 +1,38 @@
+{% extends "core/base.html" %}
+
+{% block title %}Новый вопрос — Ответы{% endblock %}
+
+{% block content %}
+    <h1 class="page-title">Новый вопрос</h1>
+    <form class="form-card" data-demo-form novalidate method="post" action="{% url 'questions:ask' %}">
+        {% csrf_token %}
+        {% include "core/includes/form-feedback.html" with error_message="Проверь заголовок, текст и теги." only %}
+        <div class="form-row">
+            <label class="form-label" for="field-title">Заголовок</label>
+            <input id="field-title" name="title" class="form-control" type="text" required minlength="10" maxlength="150"
+                   placeholder="Например, как выровнять поиск в шапке?"
+                   aria-describedby="field-title-error field-title-hint" data-feedback="field-title-error">
+            <div class="invalid-feedback" id="field-title-error">Введите заголовок вопроса.</div>
+            <div class="form-text" id="field-title-hint">От 10 до 150 символов.</div>
+        </div>
+        <div class="form-row">
+            <label class="form-label" for="field-text">Текст вопроса</label>
+            <textarea id="field-text" name="text" class="form-control" required minlength="20" maxlength="5000" rows="7"
+                      aria-describedby="field-text-error field-text-hint" data-feedback="field-text-error"></textarea>
+            <div class="invalid-feedback" id="field-text-error">Введите текст вопроса.</div>
+            <div class="form-text" id="field-text-hint">Опиши, что уже пробовал и какой результат ожидал. От 20 до 5 000 символов.</div>
+        </div>
+        <div class="form-row">
+            <label class="form-label" for="field-tags">Теги</label>
+            <input id="field-tags" name="tags" class="form-control" type="text" required maxlength="100"
+                   placeholder="html, css, bootstrap"
+                   aria-describedby="field-tags-error field-tags-hint" data-feedback="field-tags-error">
+            <div class="invalid-feedback" id="field-tags-error">Проверьте теги.</div>
+            <div class="form-text" id="field-tags-hint">До трёх тегов через запятую.</div>
+        </div>
+        <div class="form-actions">
+            <button class="btn btn-primary px-4" type="submit">Опубликовать вопрос</button>
+            <a href="{% url 'questions:index' %}">Отмена</a>
+        </div>
+    </form>
+{% endblock %}

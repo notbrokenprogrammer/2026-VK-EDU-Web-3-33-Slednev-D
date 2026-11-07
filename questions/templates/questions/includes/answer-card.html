@@ -1,0 +1,15 @@
+<article class="card answer-card" data-accepted="{{ answer.accepted|yesno:'true,false' }}">
+    <div class="question-layout">
+        {% include "questions/includes/author.html" with item=answer only %}
+        <div class="question-content">
+            <div class="answer-text">{{ answer.text|linebreaks }}</div>
+            <div class="question-meta mb-3">
+                <time datetime="{{ answer.created_at|date:'c' }}">{{ answer.created_at|date:"j E Y, H:i" }}</time>
+            </div>
+            <label class="accept-label">
+                <input type="checkbox" class="form-check-input accept-input"{% if answer.accepted %} checked{% endif %}>
+                <span>Правильный ответ</span>
+            </label>
+        </div>
+    </div>
+</article>

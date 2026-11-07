@@ -1,0 +1,25 @@
+{% extends "core/base.html" %}
+
+{% block title %}Регистрация — Ответы{% endblock %}
+
+{% block content %}
+    <h1 class="page-title">Создать аккаунт</h1>
+    <form class="form-card" data-demo-form novalidate method="post" enctype="multipart/form-data" action="{% url 'core:signup' %}">
+        {% csrf_token %}
+        {% include "core/includes/form-feedback.html" with error_message="Проверь поля формы." only %}
+        {% include "core/includes/account-fields.html" with email="" nickname="" only %}
+        {% include "core/includes/credentials.html" with autocomplete="new-password" only %}
+        <div class="form-row">
+            <label class="form-label" for="field-password-confirm">Повтори пароль</label>
+            <input id="field-password-confirm" name="password_confirm" class="form-control" type="password"
+                   autocomplete="new-password" required minlength="8" maxlength="128"
+                   aria-describedby="field-password-confirm-error" data-feedback="field-password-confirm-error">
+            <div class="invalid-feedback" id="field-password-confirm-error">Пароли должны совпадать.</div>
+        </div>
+        {% include "core/includes/avatar-field.html" with avatar="core/img/avatar-alex.svg" only %}
+        <div class="form-actions">
+            <button class="btn btn-primary px-4" type="submit">Зарегистрироваться</button>
+            <a href="{% url 'core:login' %}">Уже есть аккаунт?</a>
+        </div>
+    </form>
+{% endblock %}

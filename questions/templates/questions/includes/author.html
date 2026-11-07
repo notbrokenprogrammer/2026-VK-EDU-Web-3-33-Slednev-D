@@ -1,0 +1,12 @@
+{% load static %}
+<div class="author-column">
+    <img src="{% static item.author.avatar %}" class="avatar" alt="" decoding="async" loading="lazy">
+    <span class="author-name">{{ item.author.name }}</span>
+    <div class="btn-group vote-widget" data-current-vote="{{ item.vote }}" role="group" aria-label="Голосование">
+        <span class="btn btn-outline-secondary vote-count" aria-live="polite">{{ item.score }}</span>
+        <button class="btn btn-outline-secondary vote-button" type="button" data-vote="1"
+                aria-label="Поставить лайк" aria-pressed="{% if item.vote == 1 %}true{% else %}false{% endif %}">+</button>
+        <button class="btn btn-outline-secondary vote-button" type="button" data-vote="-1"
+                aria-label="Поставить дизлайк" aria-pressed="{% if item.vote == -1 %}true{% else %}false{% endif %}">−</button>
+    </div>
+</div>

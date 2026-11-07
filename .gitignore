@@ -25,4 +25,7 @@ dist/
 build/
 coverage/
 *.zip
-# Bootstrap в public/static — необходимые локальные файлы, они коммитятся.
+
+# Собранная статика и файлы пользователей
+/static/
+/media/

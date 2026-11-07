@@ -1,0 +1,7 @@
+{% extends "questions/list.html" %}
+
+{% block title %}{% if query %}Поиск{% else %}Новые вопросы{% endif %} — Ответы{% endblock %}
+{% block heading %}{% if query %}Поиск: «{{ query }}»{% else %}Новые вопросы{% endif %}{% endblock %}
+{% block listing_link %}
+    <a class="listing-switch" href="{% url 'questions:hot' %}">Популярные вопросы</a>
+{% endblock %}
