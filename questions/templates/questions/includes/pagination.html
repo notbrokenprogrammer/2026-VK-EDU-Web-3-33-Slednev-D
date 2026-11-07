@@ -1,0 +1,25 @@
+{% if page_obj.has_other_pages %}
+    <nav class="mt-4" aria-label="{{ label }}">
+        <ul class="pagination flex-wrap mb-0">
+            {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="{% querystring page=page_obj.previous_page_number %}{{ fragment }}" aria-label="Предыдущая страница">‹</a>
+                </li>
+            {% endif %}
+            {% for number in page_obj.paginator.page_range %}
+                {% if number == page_obj.number %}
+                    <li class="page-item active"><span class="page-link" aria-current="page">{{ number }}</span></li>
+                {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="{% querystring page=number %}{{ fragment }}" aria-label="Страница {{ number }}">{{ number }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+            {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="{% querystring page=page_obj.next_page_number %}{{ fragment }}" aria-label="Следующая страница">›</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endif %}

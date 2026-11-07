@@ -1,0 +1,22 @@
+{% extends "core/base.html" %}
+
+{% block title %}Профиль — Ответы{% endblock %}
+
+{% block content %}
+    <h1 class="page-title">Настройки профиля</h1>
+    <form class="form-card" data-demo-form novalidate method="post" enctype="multipart/form-data" action="{% url 'core:profile' %}">
+        {% csrf_token %}
+        {% include "core/includes/form-feedback.html" with error_message="Проверь почту, имя и аватар." only %}
+        <div class="form-row">
+            <label class="form-label" for="profile-login">Логин</label>
+            <input class="form-control" id="profile-login" name="login" value="{{ profile.login }}" readonly>
+            <div class="form-text">Логин используется для входа.</div>
+        </div>
+        {% include "core/includes/account-fields.html" with email=profile.email nickname=profile.nickname only %}
+        {% include "core/includes/avatar-field.html" with avatar=profile.avatar only %}
+        <div class="form-actions">
+            <button class="btn btn-primary px-4" type="submit">Сохранить изменения</button>
+            <a href="{% url 'questions:index' %}">К вопросам</a>
+        </div>
+    </form>
+{% endblock %}

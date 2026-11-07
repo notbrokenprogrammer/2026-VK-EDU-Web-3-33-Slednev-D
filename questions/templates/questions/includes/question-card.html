@@ -1,0 +1,16 @@
+<article class="card question-card">
+    <div class="question-layout">
+        {% include "questions/includes/author.html" with item=question only %}
+        <div class="question-content">
+            <h2 class="question-title">
+                <a href="{% url 'questions:detail' question.id %}">{{ question.title }}</a>
+            </h2>
+            <p class="question-excerpt">{{ question.text|truncatewords:30 }}</p>
+            <div class="question-meta">
+                <a href="{% url 'questions:detail' question.id %}#answers">Ответы: {{ question.answer_count }}</a>
+                <time datetime="{{ question.created_at|date:'c' }}">{{ question.created_at|date:"j E Y, H:i" }}</time>
+            </div>
+            {% include "questions/includes/tags.html" with tags=question.tags only %}
+        </div>
+    </div>
+</article>

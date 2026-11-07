@@ -1,0 +1,7 @@
+{% extends "questions/list.html" %}
+
+{% block title %}Популярные вопросы — Ответы{% endblock %}
+{% block heading %}Популярные вопросы{% endblock %}
+{% block listing_link %}
+    <a class="listing-switch" href="{% url 'questions:index' %}">Новые вопросы</a>
+{% endblock %}

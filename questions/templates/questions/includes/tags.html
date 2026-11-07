@@ -1,0 +1,6 @@
+<div class="question-footer tag-list">
+    <span class="tag-label">Теги:</span>
+    {% for tag in tags %}
+        <a class="badge text-bg-primary text-decoration-none tag-link" href="{% url 'questions:tag' tag %}">{{ tag }}</a>
+    {% endfor %}
+</div>

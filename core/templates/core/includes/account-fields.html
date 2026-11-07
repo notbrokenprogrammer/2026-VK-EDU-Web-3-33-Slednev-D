@@ -1,0 +1,16 @@
+<div class="form-row">
+    <label class="form-label" for="field-email">Электронная почта</label>
+    <input id="field-email" name="email" class="form-control" type="email" value="{{ email }}"
+           autocomplete="email" required maxlength="254" placeholder="name@example.com"
+           aria-describedby="field-email-error field-email-hint" data-feedback="field-email-error">
+    <div class="invalid-feedback" id="field-email-error">Введите корректный адрес электронной почты.</div>
+    <div class="form-text" id="field-email-hint">Укажи адрес для уведомлений.</div>
+</div>
+<div class="form-row">
+    <label class="form-label" for="field-nickname">Имя на сайте</label>
+    <input id="field-nickname" name="nickname" class="form-control" type="text" value="{{ nickname }}"
+           autocomplete="nickname" required minlength="3" maxlength="40"
+           aria-describedby="field-nickname-error field-nickname-hint" data-feedback="field-nickname-error">
+    <div class="invalid-feedback" id="field-nickname-error">Проверьте имя на сайте.</div>
+    <div class="form-text" id="field-nickname-hint">От 3 до 40 символов. Отображается рядом с вопросами.</div>
+</div>

@@ -1,0 +1,53 @@
+{% extends "core/base.html" %}
+
+{% block title %}{{ question.title }} — Ответы{% endblock %}
+
+{% block content %}
+    <a class="small d-inline-block mb-4" href="{% url 'questions:index' %}">← Все вопросы</a>
+    <article class="question-detail mb-4">
+        <div class="question-layout">
+            {% include "questions/includes/author.html" with item=question only %}
+            <div class="question-content">
+                <div class="question-meta mb-3">
+                    <time datetime="{{ question.created_at|date:'c' }}">{{ question.created_at|date:"j E Y, H:i" }}</time>
+                </div>
+                <h1 class="question-title">{{ question.title }}</h1>
+                {{ question.text|linebreaks }}
+                {% if question.code %}
+                    <pre class="code-example"><code>{{ question.code }}</code></pre>
+                {% endif %}
+                {% include "questions/includes/tags.html" with tags=question.tags only %}
+            </div>
+        </div>
+    </article>
+
+    <section id="answers" aria-labelledby="answers-title">
+        <h2 id="answers-title" class="h4 fw-bold mb-3">Ответы: {{ question.answer_count }}</h2>
+        <div class="d-flex flex-column gap-3">
+            {% for answer in page_obj %}
+                {% include "questions/includes/answer-card.html" with answer=answer only %}
+            {% empty %}
+                <p class="text-muted mb-0">На этот вопрос пока никто не ответил.</p>
+            {% endfor %}
+        </div>
+        {% include "questions/includes/pagination.html" with label="Страницы ответов" fragment="#answers" %}
+    </section>
+
+    <section class="mt-5" aria-labelledby="reply-title">
+        <h2 id="reply-title" class="h4 fw-bold mb-3">Твой ответ</h2>
+        <form class="form-card reply-form" data-demo-form novalidate method="post" action="{% url 'questions:detail' question.id %}">
+            {% csrf_token %}
+            {% include "core/includes/form-feedback.html" with error_message="Проверь текст ответа." only %}
+            <div class="form-row">
+                <label class="form-label" for="field-answer">Текст ответа</label>
+                <textarea id="field-answer" name="answer" class="form-control" required minlength="10" maxlength="5000" rows="5"
+                          aria-describedby="field-answer-error field-answer-hint" data-feedback="field-answer-error"></textarea>
+                <div class="invalid-feedback" id="field-answer-error">Введите текст ответа.</div>
+                <div class="form-text" id="field-answer-hint">Опиши решение. От 10 до 5 000 символов.</div>
+            </div>
+            <div class="form-actions">
+                <button class="btn btn-primary px-4" type="submit">Отправить ответ</button>
+            </div>
+        </form>
+    </section>
+{% endblock %}

@@ -18,7 +18,7 @@ body {
 .site-main > .container-fluid { display: flex; flex-direction: column; }
 .layout-row { flex: 1; }
 .main-panel, .sidebar-panel { height: 100%; padding: 20px; background: white; border: 1px solid #e4e8ef; }
-.page-title { font-size: 24px; font-weight: 400; margin-bottom: 20px; }
+.page-title { font-size: 24px; font-weight: 400; margin-bottom: 20px; overflow-wrap: anywhere; }
 .listing-heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 16px; }
 .listing-heading .page-title { margin: 0; }
 .listing-switch { font-size: 13px; }

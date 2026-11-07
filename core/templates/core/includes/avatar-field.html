@@ -1,0 +1,10 @@
+{% load static %}
+<div class="form-row">
+    <label class="form-label" for="field-avatar">Аватар</label>
+    <img id="avatar-preview" class="form-avatar d-block mb-3" src="{% static avatar %}" alt="Предпросмотр аватара">
+    <input id="field-avatar" name="avatar" class="form-control" type="file" accept="image/png,image/jpeg,image/webp"
+           aria-describedby="field-avatar-error field-avatar-hint" data-feedback="field-avatar-error"
+           data-avatar-input="avatar-preview">
+    <div class="invalid-feedback" id="field-avatar-error">Проверьте выбранный файл.</div>
+    <div class="form-text" id="field-avatar-hint">PNG, JPEG или WebP до 2 МБ. Поле необязательное.</div>
+</div>

@@ -1,0 +1,17 @@
+{% extends "core/base.html" %}
+
+{% block title %}Вход — Ответы{% endblock %}
+
+{% block content %}
+    <h1 class="page-title">С возвращением!</h1>
+    <form class="form-card login-form" data-demo-form novalidate method="post" action="{% url 'core:login' %}">
+        {% csrf_token %}
+        {% include "core/includes/form-feedback.html" with error_message="Проверь логин и пароль." only %}
+        {% include "core/includes/credentials.html" with autocomplete="current-password" only %}
+        <div class="form-actions">
+            <button class="btn btn-primary px-4" type="submit">Войти</button>
+            <a href="{% url 'core:signup' %}">Создать аккаунт</a>
+        </div>
+    </form>
+    <p class="mt-3 mb-0"><a href="{% url 'core:profile' %}">Посмотреть демо-профиль</a></p>
+{% endblock %}
