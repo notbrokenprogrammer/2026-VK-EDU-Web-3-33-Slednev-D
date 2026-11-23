@@ -13,10 +13,7 @@
                 </div>
                 <h1 class="question-title">{{ question.title }}</h1>
                 {{ question.text|linebreaks }}
-                {% if question.code %}
-                    <pre class="code-example"><code>{{ question.code }}</code></pre>
-                {% endif %}
-                {% include "questions/includes/tags.html" with tags=question.tags only %}
+                {% include "questions/includes/tags.html" with tags=question.tags.all only %}
             </div>
         </div>
     </article>
@@ -35,7 +32,7 @@
 
     <section class="mt-5" aria-labelledby="reply-title">
         <h2 id="reply-title" class="h4 fw-bold mb-3">Твой ответ</h2>
-        <form class="form-card reply-form" data-demo-form novalidate method="post" action="{% url 'questions:detail' question.id %}">
+        <form class="form-card reply-form" data-demo-form novalidate method="post" action="{{ question.get_absolute_url }}">
             {% csrf_token %}
             {% include "core/includes/form-feedback.html" with error_message="Проверь текст ответа." only %}
             <div class="form-row">

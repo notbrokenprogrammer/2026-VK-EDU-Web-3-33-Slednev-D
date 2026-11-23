@@ -3,17 +3,21 @@
         <section class="sidebar-section">
             <h2 class="sidebar-title">Популярные теги</h2>
             <div class="tag-list">
-                <a class="badge text-bg-primary text-decoration-none tag-link" href="{% url 'questions:tag' 'bootstrap' %}">bootstrap</a>
-                <a class="badge text-bg-primary text-decoration-none tag-link" href="{% url 'questions:tag' 'html' %}">html</a>
-                <a class="badge text-bg-primary text-decoration-none tag-link" href="{% url 'questions:tag' 'css' %}">css</a>
+                {% for tag in tags %}
+                    <a class="badge text-bg-primary text-decoration-none tag-link" href="{{ tag.get_absolute_url }}">{{ tag }}</a>
+                {% empty %}
+                    <span class="text-muted">Пока нет тегов.</span>
+                {% endfor %}
             </div>
         </section>
         <section class="sidebar-section">
             <h2 class="sidebar-title mb-1">Лучшие пользователи</h2>
             <ol class="member-list">
-                <li>Анна К.</li>
-                <li>Максим С.</li>
-                <li>Алексей Л.</li>
+                {% for author in authors %}
+                    <li>{{ author.author__username }}</li>
+                {% empty %}
+                    <li class="list-unstyled text-muted">Пока нет авторов вопросов.</li>
+                {% endfor %}
             </ol>
         </section>
     </div>

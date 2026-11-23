@@ -1,4 +1,4 @@
-{% load static %}
+{% load static community %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -57,7 +57,7 @@
                         {% block content %}{% endblock %}
                     </div>
                 </div>
-                {% include "core/includes/sidebar.html" %}
+                {% community_sidebar %}
             </div>
         </div>
     </main>
