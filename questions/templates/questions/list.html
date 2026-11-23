@@ -9,7 +9,7 @@
         {% for question in page_obj %}
             {% include "questions/includes/question-card.html" with question=question only %}
         {% empty %}
-            <p class="text-muted mb-0">Подходящих вопросов пока нет.</p>
+            <p class="text-muted mb-0">{% if query %}По запросу «{{ query }}» ничего не найдено.{% elif tag %}Вопросов с этим тегом пока нет.{% else %}Пока нет ни одного вопроса.{% endif %}</p>
         {% endfor %}
     </div>
     {% include "questions/includes/pagination.html" with label="Страницы вопросов" %}
