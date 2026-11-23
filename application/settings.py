@@ -81,3 +81,15 @@ if DEBUG:
     INTERNAL_IPS = ["127.0.0.1", "::1"]
     if os.getenv("DJANGO_ENV_FILE") == ".env.docker":
         DEBUG_TOOLBAR_CONFIG = {"SHOW_TOOLBAR_CALLBACK": "debug_toolbar.middleware.show_toolbar_with_docker"}
+
+LOGIN_URL = "core:login"
+LOGIN_REDIRECT_URL = "questions:index"
+LOGOUT_REDIRECT_URL = "questions:index"
+AUTH_PASSWORD_VALIDATORS = [
+    {"NAME": f"django.contrib.auth.password_validation.{validator}"}
+    for validator in (
+        "UserAttributeSimilarityValidator", "MinimumLengthValidator",
+        "CommonPasswordValidator", "NumericPasswordValidator",
+    )
+]
+CSRF_FAILURE_VIEW = "core.views.csrf_failure"

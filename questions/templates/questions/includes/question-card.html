@@ -1,6 +1,6 @@
 <article class="card question-card">
     <div class="question-layout">
-        {% include "questions/includes/author.html" with item=question only %}
+        {% include "questions/includes/author.html" with item=question user=user route="questions:vote-question" only %}
         <div class="question-content">
             <h2 class="question-title">
                 <a href="{{ question.get_absolute_url }}">{{ question.title }}</a>
