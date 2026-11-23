@@ -61,7 +61,7 @@ class TagAdmin(admin.ModelAdmin):
 
 @admin.register(QuestionLike)
 class QuestionLikeAdmin(admin.ModelAdmin):
-    list_display = ["id", "user", "question"]
+    list_display = ["id", "user", "question", "value"]
     list_select_related = ["user", "question"]
     search_fields = ["user__username", "question__title"]
     list_filter = ["user__is_active"]
@@ -70,7 +70,7 @@ class QuestionLikeAdmin(admin.ModelAdmin):
 
 @admin.register(AnswerLike)
 class AnswerLikeAdmin(admin.ModelAdmin):
-    list_display = ["id", "user", "answer"]
+    list_display = ["id", "user", "answer", "value"]
     list_select_related = ["user", "answer"]
     search_fields = ["user__username", "answer__text"]
     list_filter = ["answer__accepted"]

@@ -1,12 +1,13 @@
-{% load static %}
 <div class="author-column">
-    <img src="{% if item.author.profile.avatar %}{{ item.author.profile.avatar.url }}{% else %}{% static 'core/img/avatar-alex.svg' %}{% endif %}" class="avatar" alt="" decoding="async" loading="lazy">
+    <img src="{% include 'core/includes/avatar-url.html' with account=item.author only %}" class="avatar" alt="" decoding="async" loading="lazy">
     <span class="author-name">{{ item.author.get_full_name|default:item.author.username }}</span>
-    <div class="btn-group vote-widget" data-current-vote="0" role="group" aria-label="Голосование">
+    <div class="btn-group vote-widget" data-url="{% url route item.pk %}" role="group" aria-label="Голосование">
         <span class="btn btn-outline-secondary vote-count" aria-live="polite">{{ item.score }}</span>
         <button class="btn btn-outline-secondary vote-button" type="button" data-vote="1"
-                aria-label="Поставить лайк" aria-pressed="false">+</button>
+                aria-label="Поставить лайк" aria-pressed="{% if item.vote == 1 %}true{% else %}false{% endif %}"
+                {% if not user.is_authenticated %}disabled title="Войдите, чтобы голосовать"{% elif item.vote == 1 %}disabled title="Эта оценка уже поставлена"{% endif %}>+</button>
         <button class="btn btn-outline-secondary vote-button" type="button" data-vote="-1"
-                aria-label="Поставить дизлайк" aria-pressed="false">−</button>
+                aria-label="Поставить дизлайк" aria-pressed="{% if item.vote == -1 %}true{% else %}false{% endif %}"
+                {% if not user.is_authenticated %}disabled title="Войдите, чтобы голосовать"{% elif item.vote == -1 %}disabled title="Эта оценка уже поставлена"{% endif %}>−</button>
     </div>
 </div>
